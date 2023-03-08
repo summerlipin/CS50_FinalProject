@@ -9,7 +9,7 @@ import sqlite3
 # Configure application
 app =Flask(__name__, instance_relative_config=False)
 assets = Environment(app)
-app.config.from_object('config')
+app.config.from_object('config') # this is for bundling javascript, for later use
 
 
 # set sectet_key (require by flask)
