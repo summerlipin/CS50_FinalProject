@@ -85,12 +85,12 @@ def sandBox(titleSlug = "", title = ""):
             # redirect sys.stdout to a file
             # store sys.stdout for later
             org_stdout = sys.stdout
-            # redirect standard output to the file
+            # open a file and redirect standard output to the file
             sys.stdout = f = open("file.txt", "w")
             inCode = "" if inCode == None else inCode
             # execute the code, the output will redirect to "file.txt"
             exec(str(inCode))
-            # redirect
+            # redirect standard output back to org_stdout
             sys.stdout = org_stdout
             f.close()
             outPut = open("file.txt", "r").read()
