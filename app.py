@@ -90,12 +90,16 @@ def sandBox(titleSlug = "", title = ""):
             inCode = "" if inCode == None else inCode
             # execute the code, the output will redirect to "file.txt"
             exec(str(inCode))
-            # redirect standard output back to org_stdout (re)
+            # redirect standard output back to org_stdout (redirect output back to the console)
             sys.stdout = org_stdout
+            # close the file
             f.close()
+            # read the executed output
             outPut = open("file.txt", "r").read()
 
         except Exception as e:
+            # if any error occurs, redirect standard output back to org_stdout
+            # and show the error
             org_stdout = sys.stdout
             outPut = e
             pass
