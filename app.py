@@ -82,12 +82,13 @@ def sandBox(titleSlug = "", title = ""):
             totalLineNum = request.form.get("totalLines")
             if totalLineNum != '':
                 session["totalLineNum"] = totalLineNum
-            # org_stdout = sys.stdout
+                
+            org_stdout = sys.stdout
             sys.stdout = open("file.txt", "w")
             inCode = "" if inCode == None else inCode
             exec(str(inCode))
-            # org_stdout.close()
-            sys.stdout.close() # = org_stdout
+            org_stdout.close()
+            sys.stdout = org_stdout
             outPut = open("file.txt", "r").read()
 
         except Exception as e:
