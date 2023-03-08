@@ -91,8 +91,8 @@ def sandBox(titleSlug = "", title = ""):
             # execute the code, the output will redirect to "file.txt"
             exec(str(inCode))
             # redirect
+            sys.stdout.close()
             sys.stdout = org_stdout
-            org_stdout.close()
             outPut = open("file.txt", "r").read()
 
         except Exception as e:
