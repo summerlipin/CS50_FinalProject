@@ -86,13 +86,13 @@ def sandBox(titleSlug = "", title = ""):
             # store sys.stdout for later
             org_stdout = sys.stdout
             # redirect standard output to the file
-            sys.stdout = open("file.txt", "w")
+            sys.stdout = f = open("file.txt", "w")
             inCode = "" if inCode == None else inCode
             # execute the code, the output will redirect to "file.txt"
             exec(str(inCode))
             # redirect
-            sys.stdout.close()
             sys.stdout = org_stdout
+            f.close()
             outPut = open("file.txt", "r").read()
 
         except Exception as e:
